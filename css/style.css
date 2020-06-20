@@ -112,7 +112,7 @@ nav a:hover{
     box-shadow: 0px 0px 5px;
 }
 .btn:hover {
-    color: #fff;
+    color: #fff !important;
     transform: translateY(-1.5px);
     border-color: transparent;
 }
