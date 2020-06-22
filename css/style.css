@@ -8,6 +8,10 @@ body  {
     padding: 0px;
     overflow-x: hidden;  
 }
+@font-face {
+    font-family: 'Kreon';
+    src:  url('../fonts/Kreon.ttf');
+}
 a:hover {
     text-decoration: none;
     color: #000 !important;
