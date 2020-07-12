@@ -44,12 +44,12 @@ if ($_POST) {
         if (mail($emailTo, $subject, $content, $headers)) {
             
             $successMessage = '<div class="alert alert-success" role="alert">Your message was sent, we\'ll get back to you ASAP!</div>';
-            echo "Thank You!" . " -" . "<a href='/public_html/php/index.html' style='text-decoration:none;color:#ff0099;'> Return Home</a>";
+            echo "Thank You!" . " -" . "<a href='http://kcm-com.stackstaging.com' style='text-decoration:none;color:#ff0099;'> Return Home</a>";
             
         } else {
             
             $error = '<div class="alert alert-danger" role="alert"><p><strong>Your message couldn\'t be sent - please try again later</div>';
-            echo "Sorry, please try again!" . " -" . "<a href='/public_html/php/index.html' style='text-decoration:none;color:#ff0099;'> Return Home</a>";
+            echo "Sorry, please try again!" . " -" . "<a href='http://kcm-com.stackstaging.com' style='text-decoration:none;color:#ff0099;'> Return Home</a>";
             
             
         }
