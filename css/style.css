@@ -1,6 +1,6 @@
 @font-face {
     src:  url(../fonts/Montserrat-Regular.ttf) format('truetype');
-    font-family: Montserrat;
+    font-family: Montserrat-Regular;
 }
 @font-face {
     src:  url(../fonts/Kreon.ttf) format('truetype');
@@ -9,7 +9,7 @@
 
 html,
 body  {
-    font-family: 'Montserrat','Kreon';
+    font-family: 'Montserrat-Regular','Kreon';
     scroll-behavior: smooth;
     margin: 0 auto;
     padding: 0px;
