@@ -123,6 +123,7 @@ nav a:hover{
 }
 .btn:hover {
     color: rgb(0, 201, 204) !important;
+    background: #fff !important;
 }
 .btn:active {
     background: linear-gradient(-45deg,rgba(128, 0, 128, 0.815), rgba(255, 68, 0, 0.801)) !important;

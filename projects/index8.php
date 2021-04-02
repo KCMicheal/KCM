@@ -85,7 +85,7 @@
         .container {
             margin-top: 50px;
             width: 300px;
-            margin-bottom: 30px;
+            max-height: 100vh;
         }
 
         .comp {
