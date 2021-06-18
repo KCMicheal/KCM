@@ -63,3 +63,12 @@ window.addEventListener('scroll', () => {
     scrollUp.classList.remove("active");
   }
 });
+
+//typed.js
+var typed = new Typed('.typed', {
+    strings: ['I\'m a Web Designer.', 'I\'m a Web Developer.', 'I\'m a Ui/Ux Designer.', 'I\'m a Software Developer.'],
+    typeSpeed: 70,
+    backSpeed: 10,
+    smartBackspace: true, // this is a default
+    loop: true
+  });

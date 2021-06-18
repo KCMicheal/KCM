@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="Portfolio Web Designer Web Developer Freelancer Coder">
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
         <title>KCMicheal</title>
@@ -10,7 +11,9 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="fonts/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="css/style.css">
-    
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  
     </head>
 
 
@@ -44,14 +47,15 @@
             </div>
         </nav>
         
-        <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center" align="center" id="jumbo">
+        <div class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center" id="jumbo">
             <video autoplay muted loop>
                 <source src="./images/vid.mp4">
             </video>
             <div class="col jumbtext" style="overflow:hidden; max-width: 600px;">
-                <h3 class="font-weight-bold" style="color:#fff;font-family: 'Montserrat-Bold';">Hello there!<br> i'm Kc, I'm a web developer/designer & also a UI/UX designer.</h3>
+                <h3 class="font-weight-bold" style="color:#fff;font-family: 'Montserrat-Bold';text-shadow: 3px 2px 4px rgb(0, 0, 0);">Hello there!</h3>
+                <h1 class="font-weight-bold" style="color:#fff;font-family: 'Montserrat-Bold';"><span style="text-shadow: 3px 2px 4px rgb(0, 0, 0);">I'm KCMicheal,</span> <span class="typed" style="background: linear-gradient(-45deg,purple, orangered);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"></span></h1>
                 <p>
-                    <a class="btn btn-lg mb-2 mt-3 px-4 py-3" href="#portfolio" role="button" style="color:#fff">Know More</a>
+                    <!-- <a class="btn btn-lg mb-2 mt-3 px-4 py-3" href="#portfolio" role="button" style="color:#fff">Know More</a> -->
                 </p>
             </div>
         </div>
@@ -74,9 +78,9 @@
                     </div>
                     <div class="card m-3 shadow-lg justify-content-center align-self-center">
                         <a href="#"><img src="./images/proj4.png"></a>
-                        <a href="https://robogods.netlify.app" target="_blank"><h3 class="font-weight-bold porth3" style="font-family: 'Kreon';font-size: 2rem">www.robogods.netlify.app</h3></a>
+                        <a href="https://checkddecklimited.com" target="_blank"><h3 class="font-weight-bold porth3" style="font-family: 'Kreon';font-size: 2rem">www.checkddecklimited.com</h3></a>
                         <div style="width:50%;height:2px;background: linear-gradient(-45deg,purple, orangered);position: relative;top:-5px;" class="align-self-center"></div>                
-                        <p class="text-wrap" style="color:#000">A react project of mine that sorts out names of robo-greek gods</p>
+                        <p class="text-wrap" style="color:#000">A Real Estate company website where lands, properties are being sold and rented. Located in Enugu, Imo & Lagos.</p>
                     </div>
                     <div class="card m-3 shadow-lg justify-content-center align-self-center">
                         <a href="#"><img src="./images/proj5.png"></a>
@@ -85,13 +89,13 @@
                         <p class="text-wrap" style="color:#000">A real time and fast chat room application created using React on the front-end and node.js, express & socket.io on the backend deployed on both heroku and netlify</p>
                     </div>
                     <div class="card m-3 shadow-lg justify-content-center align-self-center">
-                        <a href="#"><img src="./images/proj6.jpg"></a>
+                        <a href="#"><img src="./images/proj6.png"></a>
                         <a href="https://nmasinachiskitchen.com.ng" target="_blank"><h3 class="font-weight-bold porth3" style="font-family: 'Kreon';font-size: 2rem">www.nmasinachiskitchen.com.ng</h3></a>
                         <div style="width:50%;height:2px;background: linear-gradient(-45deg,purple, orangered);position: relative;top:-5px;" class="align-self-center"></div>                
                         <p class="text-wrap" style="color:#000">A food ordering website for a caterer in Enugu. Engaging, fast and built in less than a week</p>
                     </div>
                     <div class="card m-3 shadow-lg justify-content-center align-self-center">
-                        <a href="#"><img src="./images/proj7.jpg"></a>
+                        <a href="#"><img src="./images/proj77.png"></a>
                         <a href="https://redeadvice.netlify.app" target="_blank"><h3 class="font-weight-bold porth3" style="font-family: 'Kreon';font-size: 2rem">www.redeadvice.netlify.app</h3></a>
                         <div style="width:50%;height:2px;background: linear-gradient(-45deg,purple, orangered);position: relative;top:-5px;" class="align-self-center"></div>                
                         <p class="text-wrap" style="color:#000">An Advice app created with React and advice.com API</p>
@@ -103,13 +107,14 @@
         <div id="about" class="px-5 mb-5" style="padding-bottom: 80px;">
             <h2 class="font-weight-bold display-3" align="center" style="padding-top: 82px;font-size: 4rem;font-family: 'Montserrat-Bold';">About Me</h2>
                 <div class="row justify-content-center" align="center">
-                    <div class="col-12 aboutcol p-5" align="center">
+                    <div class="col-12 aboutcol p-4" align="center">
                             Hi, I'm Kenechukwu.<br>you can call me Kc, I'm a Front-end Web developer from Enugu, Nigeria. I love coding and making good websites.I love challenges and have set a goal that by the end of the year to be a FullStack Dev.
                              I work with organizations like Skyline Innovation & Research Center(SIRC) & AfricaCodeWeek for three years teaching kids
                             and older people how to code. I love listening to music, rapping(yes,i rap :D ), watching movies and reading up on the latest tech development. 
                             <a href="#footerT" style="color:#00A4A6;">Contact</a> me to get a quality site at an affordable rate.
                     </div>
                 </div>
+                
         </div>
         
         <div id="noob">
@@ -224,7 +229,7 @@
                     </div> 
                 </div>     
             </div>
-            <h4 class="display-5" align="center">Follow on these socials</h4>
+            <h4 class="display-5" align="center">Follow me on:</h4>
             <div class="row">
                 <div class="col d-flex p-5 m-3 justify-content-around">
                     <div class="socialicon">
@@ -247,8 +252,10 @@
             <a href="#jumbo" class="scrollUp">
                 <i class="fa fa-chevron-up"></i>
             </a>
-            <h3 class="lead display-5" align="center">&copy;2020 by KCM</h3>
+            <h3 class="lead display-5" align="center">&copy;2021 by KCM</h3>
         </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="./jquery-ui/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="./bootstrap/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

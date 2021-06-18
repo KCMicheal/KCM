@@ -83,6 +83,7 @@ nav a:hover{
 .jumbtext {
     z-index: 2;
     position: relative;
+    float: left;
 }
 .scrollUp {
     display:  flex;
@@ -169,7 +170,7 @@ nav a:hover{
     border: 1px solid #00A4A6;
     box-shadow: inset 0px 0px 50px #00A4A6;
     line-height: 35px; 
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 .aboutcol a:hover {
     background: linear-gradient(-45deg,purple, orangered);
