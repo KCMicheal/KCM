@@ -546,7 +546,7 @@ nav a:hover{
 
 @media only screen and (max-width:480px) {
     .testimonial_095_slide {
-        width: 98%;
+        width: 100%;
         padding: 5px
     }
 }
