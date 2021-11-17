@@ -684,3 +684,27 @@ nav a:hover{
     -webkit-transition-timing-function: cubic-bezier(.445, .05, .55, .95);
     transition-timing-function: cubic-bezier(.445, .05, .55, .95)
 }
+
+/*second anim feature start*/
+.kcm {
+  color:#0000;
+  background:
+    linear-gradient(-90deg,#00DFFC 1ch,#0000 0) 0 0,
+    linear-gradient(-90deg,#0000 1ch,#00DFFC 0) 0 0,
+    rgba(0,0,0,0.3);
+  background-size:calc(var(--n)*1ch) 200%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  background-repeat:no-repeat;
+  animation: 
+   b .4s infinite linear,   
+   t calc(var(--n)*.4s) steps(var(--n)) forwards;
+}
+
+@keyframes t{
+    from {background-size:0 200%}
+  }
+  @keyframes b{
+    0% {background-position:0 200%,0 0}
+  }
+/*second anim feature end*/
