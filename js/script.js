@@ -1,3 +1,7 @@
+//Copyright  
+const currentYear = new Date().getFullYear();
+document.getElementById("currentYear").innerText = currentYear;
+
 //Navbar toggle
 $(document).ready(function() {
     $(window).scroll(function() {
