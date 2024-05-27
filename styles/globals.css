@@ -16,6 +16,19 @@
   }
 }
 
+.btn {
+  @apply px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-700;
+}
+
+.btn-outline {
+  @apply px-4 py-2 rounded-md border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white;
+}
+
+.btn-sm {
+  @apply px-2 py-1;
+}
+
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +37,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    height: 100vh;
+    margin: 0 auto;
+    overflow-y: hidden;
 }
+

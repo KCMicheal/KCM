@@ -9,11 +9,11 @@ export default function Layout({ children }) {
             exit={{ x: 300, opacity: 0 }}
             transition={{
                 type: "spring",
-                stiffness: 260,
+                stiffness: 2600,
                 damping: 20,
             }}
         >
-        <div className="container lg:w-2/3 lg:p-12 md:w-2/3 md:m-9 md:p-10 sm:p-6 sm:mt-10 border border-green-600">
+        <div className="bg-white dark:bg-secondary min-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-9 md:p-10 p-6 rounded-2xl shadow-xl">
             <header>
                 {/* Header content goes here */}
             </header>
