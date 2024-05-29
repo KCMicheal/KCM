@@ -5,7 +5,7 @@ export default function Sidebar({ currentPage }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const getButtonBackgroundClass = (page) => {
-        return currentPage === page ? 'bg-primary text-tertiary font-ubuntu font-medium shadow-lg hover:bg-secondary' : 'bg-tertiary text-secondary font-ubuntu font-normal hover:bg-primary';
+        return currentPage === page ? 'bg-primary text-tertiary font-ubuntu font-medium shadow-lg hover:bg-secondary' : 'bg-tertiary text-secondary font-ubuntu font-normal hover:bg-primary hover:font-medium hover:text-white';
     };
 
     return (
