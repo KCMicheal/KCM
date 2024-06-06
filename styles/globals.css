@@ -16,6 +16,14 @@
   }
 }
 
+.body-heading1 {
+  @apply text-5xl font-syne font-bold;
+}
+
+.body-text1 {
+  @apply text-base font-ubuntu font-medium;
+}
+
 .btn {
   @apply px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-700;
 }
