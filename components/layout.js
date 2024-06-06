@@ -13,7 +13,7 @@ export default function Layout({ children }) {
                 damping: 20,
             }}
         >
-        <div className="bg-white dark:text-white dark:bg-secondary min-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-9 md:p-10 p-6 rounded-2xl shadow-xl">
+        <div className="z-auto bg-white dark:text-white dark:bg-secondary min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-clip">
             <header>
                 {/* Header content goes here */}
             </header>
