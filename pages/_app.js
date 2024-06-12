@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router'
-import Sidebar from '@/components/sidebar'
-import '@/styles/globals.css'
-import Layout from '@/components/layout';
+import { useRouter } from 'next/router';
+import  Sidebar from '../components/sidebar.js';
+import '../styles/globals.css';
+import Layout from '../components/layout.js';
 import { AnimatePresence } from 'framer-motion';
 
 export default function App({ Component, pageProps }) {

@@ -6,8 +6,8 @@ export default async function handler(req, res) {
   // req.query would be { param1: 'value1', param2: 'value2' }
 
   // Construct the URL with query parameters
-  const url = new URL('https://official-joke-api.appspot.com/programming_joke');
-  Object.keys(req.query).forEach(key => url.searchParams.append(key, req.query[key]));
+  const url = new URL('https://official-joke-api.appspot.com/random_ten');
+  //Object.keys(req.query).forEach(key => url.searchParams.append(key, req.query[key]));
 
   try {
     const response = await fetch(url);
@@ -16,8 +16,8 @@ export default async function handler(req, res) {
     }
     const data = await response.json();
     console.log(data);
-    res.status(200).json({ name: 'John Doe' });
-    res.status(200).json(data);
+    // res.status(200).json({ name: 'John Doe' });
+    res.status(200).json(data.map((goat) => ({ type: goat.type, setup: goat.setup, punchline: goat.punchline, id: goat.id })));
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'An error occurred while fetching data.' });
