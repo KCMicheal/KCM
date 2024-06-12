@@ -1,5 +1,4 @@
-// components/Layout.js
-import { motion } from "framer-motion"; // Import framer-motion
+import { motion } from "framer-motion";
 
 export default function Layout({ children }) {
     return (
@@ -13,7 +12,7 @@ export default function Layout({ children }) {
                 damping: 20,
             }}
         >
-        <div className="z-auto bg-white dark:text-white dark:bg-secondary min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-clip">
+        <div className="z-0 bg-white dark:text-white dark:bg-secondary min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-clip">
             <header>
                 {/* Header content goes here */}
             </header>

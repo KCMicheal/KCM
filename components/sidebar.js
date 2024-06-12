@@ -23,10 +23,10 @@ export default function Sidebar({ currentPage }) {
 
     return (
         <div className=''>
-            <button type='button' onClick={() => setIsOpen(!isOpen)} className={` md:hidden absolute transition-transform translate-x-[0vw] translate-y-[80vh]  ${isOpen ? 'transition-transform ease-in translate-x-[1vw] translate-y-[40vh]' : ' '} rounded-full shadow-2xl  p-6 hover:scale-150 bg-white dark:bg-white dark:border-4 dark:border-primary`}>
+            <button type='button' onClick={() => setIsOpen(!isOpen)} className={`z-30 md:hidden absolute transition-transform translate-x-[0vw] translate-y-[80vh]  ${isOpen ? 'transition-transform ease-in translate-x-[1vw] translate-y-[40vh]' : ' '} rounded-full shadow-2xl  p-6 hover:scale-150 bg-white dark:bg-white dark:border-4 dark:border-primary`}>
                 {isOpen ? <CloseMenuIcon /> : <OpenMenuIcon />}
             </button>
-            <div className={`fixed top-0 right-0 lg:w-64 h-full md:w-52 bg-secondary overflow-hidden transition-transform 
+            <div className={`z-20 fixed top-0 right-0 lg:w-64 h-full md:w-52 bg-secondary overflow-hidden transition-transform 
    duration-500 ease-in ${isOpen ? 'block w-[75vw]' : 'translate-x-full'} md:translate-x-0 flex p-9 pt-20 pb-20 justify-center`}>
                 <div className='border-4 border-t-white border-r-primary border-b-primary overflow-visible flex'>
                     <div className='p-2 h-[60vh] self-end -ml-4 -mb-2 bg-secondary'></div>
