@@ -25,7 +25,11 @@
 }
 
 .btn {
-  @apply px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-700;
+  @apply px-4 py-2 rounded-md text-white bg-primary hover:bg-secondary;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-secondary;
 }
 
 .btn-outline {

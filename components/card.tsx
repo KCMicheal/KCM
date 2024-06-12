@@ -38,7 +38,7 @@ const CardStack = ({
         newArray.unshift(newArray.pop()!); // move the last element to the front
         return newArray;
       });
-    }, 3000);
+    }, 4000);
   };
 
   return (
@@ -86,7 +86,7 @@ const CARDS = [
         src="/assets/b.jpeg"
         width={1000}
         height={1000}
-        className="w-[100%] h-full object-fill"
+        className="w-[100%] h-full object-fill rounded-lg"
       ></Image>
     ),
   },
@@ -100,7 +100,7 @@ const CARDS = [
         src="/assets/brandbird.png"
         width={1000}
         height={1000}
-        className="w-[100%] h-full object-cover"
+        className="w-[100%] h-full object-cover rounded-lg"
       ></Image>
     ),
   },
@@ -114,7 +114,7 @@ const CARDS = [
         src="/assets/b.jpeg"
         width={1000}
         height={1000}
-        className="w-[100%] h-full object-fill"
+        className="w-[100%] h-full object-fill rounded-lg"
       ></Image>
     ),
   },
