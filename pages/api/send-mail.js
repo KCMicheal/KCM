@@ -7,14 +7,14 @@ export default function handler(req, res) {
         to: process.env.GMAIL_EMAIL_ADDRESS,
         subject: req.body.subject,
         text: req.body.message,
-        html: `<p>${req.body.message}</p>`,
+        html: `<p>${req.body.message} from ${req.body.email} with subject: ${req.body.subject}</p>`,
     };
 
     let transporter = nodemailer.createTransport({
         // service: 'gmail',
+        // port: 587,
         host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
+        secure: true,
         auth: {
             user: process.env.GMAIL_EMAIL_ADDRESS,
             pass: process.env.GMAIL_APP_PASSWORD,
@@ -38,6 +38,8 @@ export default function handler(req, res) {
         }
     } catch (error) {
         console.log(error.message);
+    } finally {
+        console.log("Message sent");
     }
     
 }
