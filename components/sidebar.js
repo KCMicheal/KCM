@@ -36,7 +36,7 @@ export default function Sidebar({ currentPage }) {
                                 about
                             </button>
                         </Link>
-                        <Link href="/blog">
+                        <Link href="https://kcm.hashnode.dev/" target='_blank'>
                             <button className={`${getButtonBackgroundClass('/blog')} p-3 rounded-md mb-2 px-9 w-full`} onClick={() => setIsOpen(!isOpen)}>
                                 blog
                             </button>

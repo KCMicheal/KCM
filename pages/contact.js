@@ -7,6 +7,14 @@ import React, { useState } from 'react';
 import GoogleCaptchaWrapper from '../components/google-captcha-wrapper';
 
 
+const submittingIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" className=" animate-spin">
+    <g fill="black">
+      <path fill-rule="evenodd" d="M12 19a7 7 0 1 0 0-14a7 7 0 0 0 0 14m0 3c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10" clip-rule="evenodd" opacity="0.2" />
+      <path d="M2 12C2 6.477 6.477 2 12 2v3a7 7 0 0 0-7 7z" />
+    </g>
+  </svg>
+);
 
 const openCalendlyPopup = () => {
   window.open('https://calendly.com/kcmicheal', 'popupWindow', 'width=600,height=600,scrollbars=yes');
@@ -38,10 +46,12 @@ function ContactInside() {
   const [responseMessage, setResponseMessage] = useState({ isSuccessful: false, message: '' });
   const [notification, setNotification] = useState('');
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const [sending, setIsSending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setIsSending(true);
     if (!executeRecaptcha) {
       console.log("Execute recaptcha not available yet");
       setNotification(
@@ -53,15 +63,15 @@ function ContactInside() {
       submitEnquiryForm(gReCaptchaToken);
     });
 
-    const submitEnquiryForm = (gReCaptchaToken) => {
+    const submitEnquiryForm = async (gReCaptchaToken) => {
       async function goAsync() {
-        const response = await axios({
-          method: "post",
+        const response = await axios.post({
+          // method: "post",
           headers: {
             'Accept': 'application/json, text/plain, */*',
             'ContentType': 'application/json',
           },
-          url: "/api/contactformsubmit",
+          url: "/api/form-submit",
           data: {
             gRecaptchaToken: gReCaptchaToken,
             email: values.email,
@@ -74,22 +84,25 @@ function ContactInside() {
           setNotification(`Failure with score: ${response?.data?.score}`);
         }
       }
-      goAsync().then(() => { }); // suppress async warning
+      goAsync().then(async () => {
+        try {
+          const req = await sendEmail(values.email, values.subject, values.message);
+          if (req.status === 250) {
+            setIsSending(false);
+            setResponseMessage(
+              { isSuccessful: true, message: 'Thank you for your message.' });
+          }
+        } catch (e) {
+          console.error(e); // Log the error to the console
+          setResponseMessage({
+            isSuccessful: false,
+            message: 'Oops something went wrong. Please try again.',
+          });
+        }
+       });
     };
     
-    try {
-      const req = await sendEmail(values.email, values.subject, values.message);
-      if (req.status === 250) {
-        setResponseMessage(
-          { isSuccessful: true, message: 'Thank you for your message.' });
-      }
-    } catch (e) {
-      console.error(e); // Log the error to the console
-      setResponseMessage({
-        isSuccessful: false,
-        message: 'Oops something went wrong. Please try again.',
-      });
-    }
+    
   };
 
   return (
@@ -130,14 +143,45 @@ function ContactInside() {
             />
 
             {notification && <p className="mt-3 text-info">{notification}</p>}
-            <button type='submit' value='Submit' className='bg-primary p-4 w-[60%] rounded-xl text-white text-base
-             font-ubuntu font-bold hover:bg-opacity-70  transition-all duration-300'>Send 👋</button>
+            <button type='submit' value='Submit' className='bg-primary p-4 w-[60%] flex justify-center items-center gap-2 rounded-xl text-white text-base
+             font-ubuntu font-bold hover:bg-opacity-70  transition-all duration-300'>
+              {sending ? (
+                <>
+                  Sending <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className=" animate-spin size-5">
+                    <g fill="white">
+                      <path fill-rule="evenodd" d="M12 19a7 7 0 1 0 0-14a7 7 0 0 0 0 14m0 3c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10" clip-rule="evenodd" opacity="0.2" />
+                      <path d="M2 12C2 6.477 6.477 2 12 2v3a7 7 0 0 0-7 7z" />
+                    </g>
+                  </svg>
+                </>
+                ) : responseMessage.isSuccessful? (
+                    <>
+                    Sent <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                      <defs>
+                        <mask id="lineMdCheckAll0">
+                          <g fill="none" stroke="#fff" stroke-dasharray="22" stroke-dashoffset="22" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M2 13.5l4 4l10.75 -10.75" stroke-dashoffset="0" />
+                            <path stroke="#000" stroke-width="4" d="M7.5 13.5l4 4l10.75 -10.75" stroke-dashoffset="0" />
+                            <path d="M7.5 13.5l4 4l10.75 -10.75" stroke-dashoffset="0" />
+                          </g>
+                        </mask>
+                      </defs>
+                      <rect width="24" height="24" fill="#409905" mask="url(#lineMdCheckAll0)" />
+                    </svg>
+                    </>
+                ) : (
+                    <>
+                      Send 👋
+                    </>
+                )}
+              </button>
           </form>
         </div>
         <div className="w-full md:w-1/2 self-center p-2">
+          <h1 className="font-syne font-bold text-2xl lg:text-4xl text-center mb-2 animate-bounce">Links & Scheduler</h1>
           <div className='grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16'>
             <div className='flex flex-col justify-center items-center bg-white p-2 rounded-xl max-w-20 shadow-lg hover:scale-125 transition-all cursor-pointer hover:bg-opacity-70'>
-              <a href="https://www.linkedin.com/in/john-doe-000000000/" target="_blank" rel="noreferrer">
+              <a href="https://www.github.com/kcmicheal" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="3.2rem" height="3.2rem" viewBox="0 0 48 48">
                   <g fill-rule="evenodd" clip-rule="evenodd">
                     <path d="M24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4ZM0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" />
@@ -147,7 +191,7 @@ function ContactInside() {
               </a>
             </div>
             <div className='flex flex-col justify-center items-center bg-white p-2 rounded-xl max-w-20 shadow-lg hover:scale-125 transition-all cursor-pointer hover:bg-opacity-70'>
-              <a href="https://www.linkedin.com/in/john-doe-000000000/" target="_blank" rel="noreferrer">
+              <a href="https://www.gitlab.com/kcmicheal" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256">
                   <g fill="none">
                     <rect width="256" height="256" fill="#242938" rx="60" />
@@ -163,7 +207,7 @@ function ContactInside() {
               </a>
             </div>
             <div className='flex flex-col justify-center items-center bg-white p-2 rounded-xl max-w-20 shadow-lg hover:scale-125 transition-all cursor-pointer hover:bg-opacity-70'>
-              <a href="https://www.linkedin.com/in/john-doe-000000000/" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/kenechukwu-egwunwoke" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256">
                   <g fill="none">
                     <rect width="256" height="256" fill="#fff" rx="60" />
@@ -174,14 +218,14 @@ function ContactInside() {
               </a>
             </div>
             <div className='flex flex-col justify-center items-center bg-white p-2 rounded-xl max-w-20 shadow-lg hover:scale-125 transition-all cursor-pointer hover:bg-opacity-70'>
-              <a href="https://www.linkedin.com/in/john-doe-000000000/" target="_blank" rel="noreferrer">
+              <a href="https://www.twitter.com/king__cypher" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="48" viewBox="0 0 448 512">
                   <path fill="black" d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm297.1 84L257.3 234.6L379.4 396h-95.6L209 298.1L123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5l78.2-89.5zm-37.8 251.6L153.4 142.9h-28.3l171.8 224.7h26.3z" />
                 </svg>
               </a>
             </div>
             <div className='flex flex-col justify-center items-center bg-white p-2 rounded-xl max-w-20 shadow-lg hover:scale-125 transition-all cursor-pointer hover:bg-opacity-70'>
-              <a href="https://www.linkedin.com/in/john-doe-000000000/" target="_blank" rel="noreferrer">
+              <a href="https://www.linktr.ee/kcmicheal" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
                   <path fill="black" d="m13.736 5.853l4.005-4.117l2.325 2.38l-4.2 4.005h5.908v3.305h-5.937l4.229 4.108l-2.325 2.334l-5.74-5.769l-5.741 5.769l-2.325-2.325l4.229-4.108H2.226V8.121h5.909l-4.2-4.004l2.324-2.381l4.005 4.117V0h3.472zm-3.472 10.306h3.472V24h-3.472z" />
                 </svg>

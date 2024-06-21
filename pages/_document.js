@@ -1,3 +1,4 @@
+import { Meteors } from '../components/meteors'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -10,6 +11,7 @@ export default function Document() {
       </Head>
       <body className='z-auto'>
         <Main />
+        <Meteors number={50} />
         <NextScript />
       </body>
     </Html>
