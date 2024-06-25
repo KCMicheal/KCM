@@ -42,12 +42,12 @@ const CardStack = ({
   };
 
   return (
-    <div className="z-10 relative  h-60 w-[19rem] md:h-60 md:w-96">
+    <div className="z-10 relative  h-60 w-[19rem] md:h-68 md:w-96">
       {cards.map((card, index) => {
         return (
           <motion.div
             key={card.id}
-            className="absolute dark:bg-black bg-white h-50 w-full md:h-60 md:w-96 lg:w-[24rem] rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white/[0.1]  shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between"
+            className="absolute dark:bg-black  bg-white h-50 w-full md:h-50 md:w-96 lg:w-[24rem] rounded-3xl p-0 shadow-xl border border-neutral-200 dark:border-white/[0.1]  shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between"
             style={{
               transformOrigin: "top center",
             }}
@@ -86,7 +86,7 @@ const CARDS = [
         src="/assets/b.jpeg"
         width={1000}
         height={1000}
-        className="w-[100%] h-full object-fill rounded-lg"
+        className="w-[100%] h-auto object-fill rounded-lg"
       ></Image>
     ),
   },
@@ -100,7 +100,7 @@ const CARDS = [
         src="/assets/brandbird.png"
         width={1000}
         height={1000}
-        className="w-[100%] h-full object-cover rounded-lg"
+        className="w-[100%] h-auto object-contain rounded-lg"
       ></Image>
     ),
   },
@@ -114,10 +114,219 @@ const CARDS = [
         src="/assets/b.jpeg"
         width={1000}
         height={1000}
-        className="w-[100%] h-full object-fill rounded-lg"
+        className="w-[100%] h-auto object-fill rounded-lg"
       ></Image>
     ),
   },
 ];
 
-export { CardStack, CARDS };
+
+const NmaCards = [
+  {
+    content: (
+      <Image
+        alt="Nmasinachi's Kitchen Pics"
+        src="/assets/nma/nma4.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-contain bg-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Nmasinachi's Kitchen Pics"
+        src="/assets/nma/nma1.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Nmasinachi's Kitchen Pics"
+        src="/assets/nma/nma2.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Nmasinachi's Kitchen Pics"
+        src="/assets/nma/nma3.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+];
+const MilesCards = [
+  {
+    content: (
+      <Image
+        alt="MilesVilla Pics"
+        src="/assets/miles/miles5.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-contain bg-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="MilesVilla Pics"
+        src="/assets/miles/miles1.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="MilesVilla Pics"
+        src="/assets/miles/miles2.jpeg"
+        width={1000}
+        height={100}
+        className="w-[100%] h-52 md:h-58 rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="MilesVilla Pics"
+        src="/assets/miles/miles3.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="MilesVilla Pics"
+        src="/assets/miles/miles4.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+];
+const SercleCards = [
+  {
+    content: (
+      <Image
+        alt="Sercle Pics"
+        src="/assets/sercle/serc5.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-contain bg-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Sercle Pics"
+        src="/assets/sercle/serc1.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Sercle Pics"
+        src="/assets/sercle/serc2.jpeg"
+        width={1000}
+        height={100}
+        className="w-[100%] h-52 md:h-58 rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Sercle Pics"
+        src="/assets/sercle/serc3.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Sercle Pics"
+        src="/assets/sercle/serc4.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+];
+const CheckDDCards = [
+  {
+    content: (
+      <Image
+        alt="Check DDeck Pics"
+        src="/assets/check/check4.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-contain bg-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Check DDeck Pics"
+        src="/assets/check/check1.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Check DDeck Pics"
+        src="/assets/check/check2.jpeg"
+        width={1000}
+        height={100}
+        className="w-[100%] h-52 md:h-58 rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Check DDeck Pics"
+        src="/assets/check/check3.jpeg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+];
+
+
+export { CardStack, CARDS, NmaCards, MilesCards, SercleCards, CheckDDCards };

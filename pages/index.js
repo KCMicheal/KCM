@@ -42,7 +42,7 @@ export default function Home() {
               </a>
             </div>
             <div className=" h-full w-20">
-              <a href="https://www.linkedin.com/kenechukwu-egwunwoke" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/kenechukwu-egwunwoke" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className=" size-15 md:size-20">
                   <g fill="none">
                     <rect width="256" height="256" fill="#fff" rx="60" />
