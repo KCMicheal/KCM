@@ -1,10 +1,12 @@
-const { NextResponse } = require('next/server');
 const axios = require('axios');
 
-async function POST(request, response) {
+export default async function handler(req, res) {
     const secretKey = process?.env?.RECAPTCHA_SECRET_KEY;
-
-    const postData = await request.json();
+    const messageBody = {
+        email: req.body.email,
+        gRecaptchaToken: req.body.gRecaptchaToken,
+    };
+    const postData = messageBody;
     const { gRecaptchaToken, email } = postData;
 
     console.log(
@@ -13,10 +15,9 @@ async function POST(request, response) {
         email
     );
 
-    let res;
-    const formData = `secret=${secretKey}&response=${gRecaptchaToken}`;
+    const formData = `secret=${secretKey}&response=${req.body.gRecaptchaToken}`;
     try {
-        response = await axios.post(
+        const response = await axios.post(
             "https://www.google.com/recaptcha/api/siteverify",
             formData,
             {
@@ -25,26 +26,20 @@ async function POST(request, response) {
                 },
             }
         );
+
+        if (response && response.data?.success && response.data?.score > 0.5) {
+            console.log(
+                "Saving data to the database:",
+                email,
+            );
+            console.log("Success: response.data?.score:", response.data?.score);
+            res.status(200).send(response.data);
+        } else {
+            console.log("fail: response.data?.score:", response.data?.score);
+        }
     } catch (e) {
         console.log("recaptcha error:", e);
     }
-
-    if (response && response.data?.success && response.data?.score > 0.5) {
-        // Save data to the database from here
-        console.log(
-            "Saving data to the database:",
-            email,
-        );
-        console.log("res.data?.score:", response.data?.score);
-
-        return NextResponse.json({
-            success: true,
-            score: response.data?.score,
-        });
-    } else {
-        console.log("fail: res.data?.score:", response.data?.score);
-        return NextResponse.json({ success: false, score: response.data?.score });
-    }
 }
 
-module.exports = { POST };
+

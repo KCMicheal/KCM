@@ -1,4 +1,6 @@
 const nodemailer = require("nodemailer");
+const fs = require('fs');
+const path = require('path');
 
 export default function handler(req, res) {
 
@@ -7,7 +9,7 @@ export default function handler(req, res) {
         to: process.env.GMAIL_EMAIL_ADDRESS,
         subject: req.body.subject,
         text: req.body.message,
-        html: `<p>${req.body.message} from ${req.body.email} with subject: ${req.body.subject}</p>`,
+        html: getHtmlContent(req.body.email, req.body.subject, req.body.message),
     };
 
     let transporter = nodemailer.createTransport({
@@ -24,7 +26,6 @@ export default function handler(req, res) {
     try {
         if (req.method === 'POST') {
             transporter.sendMail(message, (err, info) => {
-
                 if (err) {
                     res.status(404).json({
                         error: `Connection refused at ${err.address}`
@@ -40,6 +41,15 @@ export default function handler(req, res) {
         console.log(error.message);
     } finally {
         console.log("Message sent");
+    }
+
+    function getHtmlContent(email, subject, message) {
+        const filePath = path.join(process.cwd(), '/public/mailtemplate.html');
+        let htmlContent = fs.readFileSync(filePath, 'utf8');
+        htmlContent = htmlContent.replace('{{emailAddress}}', email);
+        htmlContent = htmlContent.replace('{{subject}}', subject);
+        htmlContent = htmlContent.replace('{{message}}', message);
+        return htmlContent;
     }
     
 }

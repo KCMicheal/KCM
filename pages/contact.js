@@ -1,37 +1,15 @@
 "use client";
 
-import axios from "axios";
+const axios = require('axios');
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import useContactForm from '../hooks/useContactForm';
 import React, { useState } from 'react';
 import GoogleCaptchaWrapper from '../components/google-captcha-wrapper';
 
-
-const submittingIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" className=" animate-spin">
-    <g fill="black">
-      <path fill-rule="evenodd" d="M12 19a7 7 0 1 0 0-14a7 7 0 0 0 0 14m0 3c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10" clip-rule="evenodd" opacity="0.2" />
-      <path d="M2 12C2 6.477 6.477 2 12 2v3a7 7 0 0 0-7 7z" />
-    </g>
-  </svg>
-);
-
 const openCalendlyPopup = () => {
   window.open('https://calendly.com/kcmicheal', 'popupWindow', 'width=600,height=600,scrollbars=yes');
 }
-const sendEmail = async (email, subject, message) => {
-  return fetch('/api/send-mail', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: email,
-      subject: subject,
-      message: message,
-    }),
-  });
-};
+
 
 export default function Contact() {
   return (
@@ -63,35 +41,37 @@ function ContactInside() {
       submitEnquiryForm(gReCaptchaToken);
     });
 
-    const submitEnquiryForm = async (gReCaptchaToken) => {
+    const sendEmail = (email, subject, message) => {
+      return axios.post('/api/send-mail', {
+        email: email,
+        subject: subject,
+        message: message,
+      })
+    };
+
+    const submitEnquiryForm = (gReCaptchaToken) => {
       async function goAsync() {
-        const response = await axios.post({
-          // method: "post",
-          headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'ContentType': 'application/json',
-          },
-          url: "/api/form-submit",
-          data: {
-            gRecaptchaToken: gReCaptchaToken,
-            email: values.email,
-          },  
+        const response = await axios.post("/api/form-submit", {
+          email: values.email,
+          gRecaptchaToken: gReCaptchaToken,
         });
 
         if (response?.data?.success === true) {
-          setNotification(`Success with score: ${response?.data?.score}`);
+          setNotification(`Yay!! Human 🙂: ${response?.data?.score}`);
         } else {
-          setNotification(`Failure with score: ${response?.data?.score}`);
+          setNotification(`Uh-Oh! Bot 😒: ${response?.data?.score}`);
         }
       }
-      goAsync().then(async () => {
+
+      goAsync().then(() => {
         try {
-          const req = await sendEmail(values.email, values.subject, values.message);
-          if (req.status === 250) {
-            setIsSending(false);
-            setResponseMessage(
-              { isSuccessful: true, message: 'Thank you for your message.' });
-          }
+          sendEmail(values.email, values.subject, values.message).then(res => {
+            if (res.status == 250) {
+              setIsSending(false);
+              setResponseMessage(
+                { isSuccessful: true, message: 'Thank you for your message.' });
+            }
+          });
         } catch (e) {
           console.error(e); // Log the error to the console
           setResponseMessage({
@@ -106,7 +86,7 @@ function ContactInside() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col overflow-hidden h-[80vh]">
       <div className="body-heading1">contact</div>
       <div className="flex flex-col md:flex-row justify-between h-[70vh] gap-4">
         <div className=" w-full md:w-1/2 self-center ">
@@ -142,7 +122,6 @@ function ContactInside() {
               className=' p-3 md:p-4 bg-secondary text-white rounded-2xl dark:bg-white dark:text-secondary outline-4 outline-primary'
             />
 
-            {notification && <p className="mt-3 text-info">{notification}</p>}
             <button type='submit' value='Submit' className='bg-primary p-4 w-[60%] flex justify-center items-center gap-2 rounded-xl text-white text-base
              font-ubuntu font-bold hover:bg-opacity-70  transition-all duration-300'>
               {sending ? (
@@ -156,7 +135,7 @@ function ContactInside() {
                 </>
                 ) : responseMessage.isSuccessful? (
                     <>
-                    Sent <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                    Sent <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className=" size-5">
                       <defs>
                         <mask id="lineMdCheckAll0">
                           <g fill="none" stroke="#fff" stroke-dasharray="22" stroke-dashoffset="22" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -207,7 +186,7 @@ function ContactInside() {
               </a>
             </div>
             <div className='flex flex-col justify-center items-center bg-white p-2 rounded-xl max-w-20 shadow-lg hover:scale-125 transition-all cursor-pointer hover:bg-opacity-70'>
-              <a href="https://www.linkedin.com/kenechukwu-egwunwoke" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/kenechukwu-egwunwoke" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256">
                   <g fill="none">
                     <rect width="256" height="256" fill="#fff" rx="60" />
@@ -239,6 +218,23 @@ function ContactInside() {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+      <div className=" self-end">
+        <div id="toast-default" class={`${notification ? 'block' : 'hidden'} flex items-center w-full gap-4 max-w-xs p-4 text-white bg-secondary rounded-lg shadow dark:text-gray-400 dark:bg-white `} role="alert">
+          <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-secondary dark:text-white">
+            <svg class="w-4 h-4 text-primary dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.147 15.085a7.159 7.159 0 0 1-6.189 3.307A6.713 6.713 0 0 1 3.1 15.444c-2.679-4.513.287-8.737.888-9.548A4.373 4.373 0 0 0 5 1.608c1.287.953 6.445 3.218 5.537 10.5 1.5-1.122 2.706-3.01 2.853-6.14 1.433 1.049 3.993 5.395 1.757 9.117Z" />
+            </svg>
+            <span class="sr-only">Fire icon</span>
+          </div>
+          <div class="ms-3 font-grotesk font-medium text-xs">{notification}</div>
+          <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-default" aria-label="Close" onClick={() => setNotification('')}>
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

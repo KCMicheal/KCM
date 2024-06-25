@@ -13,12 +13,12 @@ export default function Layout({ children }) {
                 damping: 20,
             }}
         >
-        <div className="z-0 bg-white dark:text-white dark:bg-secondary min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-clip">
+        <div className="z-0 bg-white bg-opacity-60 dark:text-white dark:bg-secondary dark:bg-opacity-70 min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-auto border-2 border-gray-800 dark:border-gray-200">
             <header>
                 {/* Header content goes here */}
             </header>
                 <main>
-                    <div className=" hover:-translate-y-2 active:translate-y-0 transition-all duration-300 ease-in-out ">
+                    <div className=" fixed -mt-6 hover:-translate-y-2 active:translate-y-0 transition-all duration-300 ease-in-out ">
                         <Link href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" className=" size-10 lg:size-15" viewBox="0 0 24 24">
                                 <path fill="#fe4500" fill-opacity="0" d="M5 8.5L12 3L19 8.5V21H15V13L14 12H10L9 13V21H5V8.5Z">
