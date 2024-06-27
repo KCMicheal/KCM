@@ -11,7 +11,7 @@ export default function Home() {
             <h1 className="font-syne text-center sm:text-left text-4xl lg:text-6xl md:text-5xl font-medium ">Hi there👋,</h1>
             <h1 className="font-syne text-center sm:text-left text-5xl lg:text-6xl md:text-5xl font-bold drop-shadow-xl ">{`I'm KCMicheal`}</h1>
             <h1 className='font-syne text-center sm:text-left  text-2xl md:text-4xl leading-tight font-medium '>
-              <FlipWords words={titles} duration={1500} /> 
+              <FlipWords words={titles} duration={1500} className="w-[80vw] pt-4 pb-4 text-center sm:text-left" /> 
             </h1>
           </div>
           <div className="inline-flex justify-between lg:w-1/2 md:w-full w-full lg:h-20 h-16 gap-4">
