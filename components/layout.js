@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Meteors } from "./meteors";
 
 export default function Layout({ children }) {
     return (
@@ -13,11 +14,12 @@ export default function Layout({ children }) {
                 damping: 20,
             }}
         >
-        <div className="z-0 bg-white bg-opacity-60 dark:text-white dark:bg-secondary dark:bg-opacity-70 min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-x-hidden border-2 border-gray-800 dark:border-gray-200">
+        <div className="z-0 bg-white bg-opacity-60 dark:text-white dark:bg-secondary dark:bg-opacity-70 min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-auto border-2 border-gray-800 dark:border-gray-200">
             <header>
                 {/* Header content goes here */}
             </header>
                 <main>
+                    <Meteors number={30} className="max-sm:hidden" />
                     <div className=" fixed -mt-6 hover:-translate-y-2 active:translate-y-0 transition-all duration-300 ease-in-out ">
                         <Link href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" className=" size-10 lg:size-15" viewBox="0 0 24 24">

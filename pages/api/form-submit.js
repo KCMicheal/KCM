@@ -1,13 +1,13 @@
 const axios = require('axios');
 
 export default async function handler(req, res) {
-    const secretKey = process?.env?.RECAPTCHA_SECRET_KEY;
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
     const messageBody = {
         email: req.body.email,
         gRecaptchaToken: req.body.gRecaptchaToken,
     };
-    const postData = messageBody;
-    const { gRecaptchaToken, email } = postData;
+
+    const { gRecaptchaToken, email } = messageBody;
 
     console.log(
         "gRecaptchaToken,email",
@@ -15,7 +15,11 @@ export default async function handler(req, res) {
         email
     );
 
-    const formData = `secret=${secretKey}&response=${req.body.gRecaptchaToken}`;
+    // Use FormData instead of string concatenation for better reliability
+    const formData = new URLSearchParams();
+    formData.append('secret', secretKey);
+    formData.append('response', req.body.gRecaptchaToken);
+
     try {
         const response = await axios.post(
             "https://www.google.com/recaptcha/api/siteverify",
@@ -24,6 +28,8 @@ export default async function handler(req, res) {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                 },
+                // Adjust timeout if necessary
+                timeout: 5000, // 5 seconds
             }
         );
 
