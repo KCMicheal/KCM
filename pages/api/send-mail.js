@@ -24,9 +24,9 @@ export default async function handler(req, res) {
     });
 
     try {
-        await new Promise((resolve, reject) => {
+        await new Promise(async (resolve, reject) => {
             if (req.method === 'POST') {
-                transporter.sendMail(message, (err, info) => {
+                await transporter.sendMail(message, (err, info) => {
                     if (err) {
                         res.status(404).json({
                             error: `Connection refused at ${err.address}`
