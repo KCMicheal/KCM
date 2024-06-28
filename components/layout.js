@@ -19,7 +19,7 @@ export default function Layout({ children }) {
                 {/* Header content goes here */}
             </header>
                 <main>
-                    <Meteors number={30} className="max-sm:hidden" />
+                    <Meteors number={30} className="max-md:hidden" />
                     <div className=" fixed -mt-6 hover:-translate-y-2 active:translate-y-0 transition-all duration-300 ease-in-out ">
                         <Link href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" className=" size-10 lg:size-15" viewBox="0 0 24 24">
