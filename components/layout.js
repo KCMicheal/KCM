@@ -14,7 +14,7 @@ export default function Layout({ children }) {
                 damping: 20,
             }}
         >
-        <div className="z-0 bg-white bg-opacity-60 dark:text-white dark:bg-secondary dark:bg-opacity-70 min-h-[90vh] max-h-[90vh] md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-9 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-auto border-2 border-gray-800 dark:border-gray-200">
+        <div className="z-0 bg-white bg-opacity-60 dark:text-white dark:bg-secondary dark:bg-opacity-70 min-h-[95vh]  md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-4 md:mt-8 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-auto border-2 border-gray-800 dark:border-gray-200">
             <header>
                 {/* Header content goes here */}
             </header>
