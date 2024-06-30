@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function About() {
     return (
-        <div className=" min-h-full flex flex-col justify-evenly space-y-5">
+        <div className=" min-h-[70vh] flex flex-col justify-between space-y-5">
             <div>
                 <h1 className="body-heading1">about</h1>
             </div>

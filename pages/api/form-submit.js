@@ -1,7 +1,6 @@
 const axios = require('axios');
 
 export default async function handler(req, res) {
-    console.time("Starting form-submit");
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
     const messageBody = {
         email: req.body.email,
@@ -37,10 +36,6 @@ export default async function handler(req, res) {
                 );
 
                 if (response && response.data?.success && response.data?.score > 0.5) {
-                    console.log(
-                        "Saving data to the database:",
-                        email,
-                    );
                     console.log("Success: response.data?.score:", response.data?.score);
                     resolve(response.data);
                     res.status(200).send(response.data);
@@ -60,7 +55,6 @@ export default async function handler(req, res) {
        .then(data => {
             // Handle successful verification
             console.log('Verification successful:', data);
-            console.timeEnd("Starting form-submit")
         })
        .catch(error => {
             // Handle errors

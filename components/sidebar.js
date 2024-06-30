@@ -5,7 +5,7 @@ export default function Sidebar({ currentPage }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const getButtonBackgroundClass = (page) => {
-        return currentPage === page ? 'bg-primary text-tertiary font-ubuntu font-normal shadow-lg hover:bg-secondary' : 'bg-tertiary text-secondary font-ubuntu font-medium hover:bg-primary hover:font-medium hover:text-white';
+        return currentPage === page ? 'bg-primary text-tertiary font-ubuntu font-bold shadow-lg hover:bg-secondary' : 'bg-tertiary text-secondary font-ubuntu font-medium hover:bg-primary hover:font-medium hover:text-white';
     };
 
     const OpenMenuIcon = () => (
