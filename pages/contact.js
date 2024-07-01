@@ -20,7 +20,7 @@ export default function Contact() {
 }
 
 function ContactInside() {
-  const { values, handleChange } = useContactForm();
+  const { values, handleChange, resetForm } = useContactForm();
   const [responseMessage, setResponseMessage] = useState({ isSuccessful: false, message: '' });
   const [notification, setNotification] = useState('');
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -70,6 +70,7 @@ function ContactInside() {
               setIsSending(false);
               setResponseMessage(
                 { isSuccessful: true, message: 'Thank you for your message.' });
+                resetForm();
             }
           });
         } catch (e) {
@@ -90,7 +91,7 @@ function ContactInside() {
       <div className="body-heading1">contact</div>
       <div className="flex flex-col md:flex-row justify-between h-[70vh] gap-4">
         <div className=" w-full md:w-1/2 self-center ">
-          <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-2/3 md:w-full lg:w-[22vw]'>
+          <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-2/3 md:w-full lg:max-w-80'>
 
             <input
               required
@@ -99,7 +100,7 @@ function ContactInside() {
               onChange={handleChange}
               type='email'
               placeholder='email address'
-              className=' p-3 md:p-4 bg-secondary text-white rounded-2xl dark:bg-white dark:text-secondary outline-4 outline-primary'
+              className=' p-3 md:p-4 bg-secondary text-white rounded-2xl dark:bg-white dark:text-secondary outline-4 outline-primary font-syne font-semibold'
             />
 
             <input
@@ -109,7 +110,7 @@ function ContactInside() {
               onChange={handleChange}
               type='text'
               placeholder='subject'
-              className=' p-3 md:p-4 bg-secondary text-white rounded-2xl dark:bg-white dark:text-secondary outline-4 outline-primary'
+              className=' p-3 md:p-4 bg-secondary text-white rounded-2xl dark:bg-white dark:text-secondary outline-4 outline-primary font-syne font-bold'
             />
 
             <textarea
@@ -119,7 +120,7 @@ function ContactInside() {
               id='message'
               rows={3}
               placeholder='message'
-              className=' p-3 md:p-4 bg-secondary text-white rounded-2xl dark:bg-white dark:text-secondary outline-4 outline-primary'
+              className=' p-3 md:p-4 bg-secondary text-white rounded-2xl dark:bg-white dark:text-secondary outline-4 outline-primary font-syne font-medium'
             />
 
             <button type='submit' value='Submit' className='bg-primary p-4 w-[60%] flex justify-center items-center gap-2 rounded-xl text-white text-base

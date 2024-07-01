@@ -16,12 +16,12 @@ export default function Layout({ children }) {
                 damping: 20,
             }}
         >
-        <div className="z-0 bg-white bg-opacity-60 dark:text-white dark:bg-secondary dark:bg-opacity-70 min-h-[95vh]  md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-4 md:mt-8 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-auto border-2 border-gray-800 dark:border-gray-200">
+        <div className="z-0 relative bg-white bg-opacity-60 dark:text-white dark:bg-secondary dark:bg-opacity-70 min-h-[95vh]  md:w-[65vw] lg:w-[70vw] xl:w-[75vw] mt-4 md:mt-8 md:ml-8 p-6 md:p-10 rounded-2xl shadow-xl overflow-hidden border-2 border-gray-800 dark:border-gray-200">
             <header>
                 {/* Header content goes here */}
             </header>
                 <main>
-                    <Meteors number={50} className="max-md:hidden" />
+                    <Meteors number={50}/>
                     <div className=" flex flex-row justify-between">
                         <div className=" hover:-translate-y-2 active:translate-y-0 transition-all duration-300 ease-in-out ">
                         <Link href="/">
@@ -85,8 +85,7 @@ export default function Layout({ children }) {
                             </>)}</div> 
                         </div>
 
-                    </div>
-                              
+                    </div>                          
                     {children}
                 </main>
             <footer>
