@@ -1,22 +1,24 @@
 import { useState } from 'react';
 
 const useContactForm = () => {
-    const [values, setValues] = useState({
+    const initialState = {
         email: '',
         subject: '',
         message: '',
-    });
-
-    const handleChange = (e) => {
-        setValues(prevState => {
-            return {
-                ...prevState,
-                [e.target.id]: e.target.value,
-            };
-        });
     };
 
-    return { values, handleChange };
+    const [values, setValues] = useState(initialState);
+
+    const handleChange = (e) => {
+        setValues(prevState => ({
+           ...prevState,
+            [e.target.id]: e.target.value,
+        }));
+    };
+
+    const resetForm = () => setValues(initialState);
+
+    return { values, handleChange, resetForm };
 };
 
 export default useContactForm;

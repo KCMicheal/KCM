@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
         <AnimatePresence mode="wait" initial="false">
           <Layout>
             <Sidebar currentPage={router.pathname} />
-            <NextTopLoader color="#fe4500"
+            <NextTopLoader color="#E24329'"
               initialPosition={0.08}
               crawlSpeed={200}
               height={5}
