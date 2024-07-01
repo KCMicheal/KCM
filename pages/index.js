@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <>
       <main>
-        <div className="flex flex-col justify-around h-[80vh] md:h-[80vh] w-full">
+        <div className="flex flex-col justify-around h-[80vh] w-full">
           <div className="flex-wrap">
             <h1 className="font-syne text-center sm:text-left text-4xl lg:text-6xl md:text-5xl font-medium ">Hi there👋,</h1>
             <h1 className="font-syne text-center sm:text-left text-5xl lg:text-6xl md:text-5xl font-bold drop-shadow-xl ">{`I'm KCMicheal`}</h1>
-            <h1 className='font-syne text-center sm:text-left  text-2xl md:text-4xl leading-tight font-medium '>
+            <h1 className='font-syne text-center sm:text-left  text-2xl md:text-3xl lg:text-4xl leading-tight font-medium '>
             <FlipWords words={titles} duration={1500} /> 
             </h1>
           </div>

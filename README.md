@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # [KCM] (https://kcm.orioncync.tech)
 Official KCM portfolio website
 built during my #100daysofcode
@@ -6,11 +7,42 @@ My First custom built site...
 
 Thanks for visiting.
 =======
+=======
+# KCM v2.0 Portfolio Website [🔗](https://kcmicheal.vercel.app)
+
+Welcome to my portfolio [website](https://kcmicheal.vercel.app) repo. This site serves as a showcase of my professional journey, skills, and projects. As a versatile software engineer with a passion for developing robust and scalable web applications, I've crafted this platform to share my expertise and connect with others in the industry. Whether you're a potential employer, collaborator, or simply curious about my work, I hope you find something that sparks interest.
+
+## Screenshots
+[![KCM.png](https://i.postimg.cc/TY4RBxxt/KCM.png)](https://postimg.cc/SJcFzwJ9)
+
+## What You'll Find Here
+
+- **About Me**: Get to know me beyond the code. Learn about my background, interests, and what drives me in the world of technology.
+- **Blog**: Get and read exclusive technical articles and little nuggets of my experiences in the field.
+- **Projects**: Dive into the projects I've worked on, from innovative web applications to integrations and more. Each project tells a story of challenges overcome and lessons learned.
+- **Contact**: Interested in collaborating or just want to say hi? Feel free to reach out through the contact form or connect with me via LinkedIn.
+
+## Getting Started
+
+Simply navigate through the pages to learn more about me, my work, and how we can potentially collaborate. For developers interested in the tech behind this site, it's built with Next.js, React, Tailwind CSS, and hosted on Vercel, showcasing my commitment to leveraging modern technologies for seamless user experiences.
+
+>>>>>>> master
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+First, clone this project
+
+```
+git clone https://github.com/kcmicheal/kcm
+```
+
+next,
+
+```
+npm install
+```
+finally, run the development server:
 
 ```bash
 npm run dev
@@ -24,26 +56,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Connect With Me
 
-## Deploy on Vercel
+I'm always open to discussing new opportunities, collaborations, or just sharing ideas over coffee (virtual or in-person). Feel free to reach out through the contact form or connect with me on [LinkedIn](https://linkedin.com/in/kenechukwu-egwunwoke).
 
+<<<<<<< HEAD
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 >>>>>>> v2.0
+=======
+Thank you for visiting I hope you enjoy exploring my portfolio as much as I enjoyed building it.
+>>>>>>> master

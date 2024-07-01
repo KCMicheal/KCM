@@ -1,14 +1,18 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+<<<<<<< HEAD
 .vscode/launch.json
 .vscode/settings.json
 *.json
 .history
+=======
+>>>>>>> master
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+/.vsccode/
 
 # testing
 /coverage
@@ -38,3 +42,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+<<<<<<< HEAD
+=======
+
+/.vscode/
+>>>>>>> master
