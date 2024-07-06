@@ -23,7 +23,7 @@ export default function Sidebar({ currentPage }) {
 
     return (
         <div className=''>
-            <button type='button' onClick={() => setIsOpen(!isOpen)} className={`z-30 md:hidden absolute transition-transform translate-x-[0vw] translate-y-[77vh]  ${isOpen ? 'transition-transform ease-in translate-x-[1vw] translate-y-[40vh]' : ' '} rounded-full shadow-2xl  p-6 hover:scale-150 bg-white dark:bg-white dark:border-4 dark:border-primary`}>
+            <button type='button' onClick={() => setIsOpen(!isOpen)} className={`z-30 ring-4 ring-primary md:hidden fixed transition-transform translate-x-[0vw] translate-y-[77vh]  ${isOpen ? 'transition-transform ease-in translate-x-[1vw] translate-y-[40vh]' : ' '} rounded-full  shadow-2xl  p-6 hover:scale-150 bg-white dark:bg-white dark:border-4 dark:border-primary`}>
                 {isOpen ? <CloseMenuIcon /> : <OpenMenuIcon />}
             </button>
             <div className={`z-20 fixed top-0 right-0 lg:w-64 h-full md:w-52 bg-secondary overflow-hidden transition-transform 
