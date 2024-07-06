@@ -2,16 +2,20 @@ import Image from "next/image"
 
 export default function About() {
     return (
-        <div className=" z-10 min-h-[70vh] flex flex-col justify-between space-y-5 overflow-auto">
+        <div className=" z-10 max-h-[85vh] flex flex-col justify-between space-y-5 overflow-auto">
             <div>
                 <h1 className="body-heading1">about</h1>
             </div>
             <div className="z-10 flex flex-row flex-wrap justify-center items-center h-full overflow-auto">
-                <div className="lg:w-1/2 h-[45vh] lg:h-full overflow-y-auto text-left md:text-center p-2">
+                <div className="lg:w-1/2 h-[40vh] lg:h-full overflow-y-auto text-left md:text-center p-2">
                     <h2 className="text-xl font-ubuntu font-medium">Meet <span className="text-3xl font-syne font-bold">KCM</span></h2>
                     <p className="body-text1 md:text-xl ">Hello! I&apos;m Kenechukwu Micheal Egwunwoke aka KCM, a versatile software engineer based in Nigeria. I specialize in developing robust and scalable web applications using C#, ASP.NET Core, React, and other modern technologies. Currently, I&apos;m a Software Engineer and Lead Integrations Engineer at Xend Finance, where I&apos;ve contributed to products like XendBridge and SwitchWallet. With a background in both backend and frontend development, I have a proven track record of solving complex problems, integrating third-party services, and delivering high-quality software to both clients and companies. My journey in tech has been enriched by diverse experiences in fintech, education, and digital marketing. Connect with me on any of my socials or explore my portfolio to see my work. Looking forward to working with you.</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="size-10 absolute top-[50%] left-[88%] md:hidden animate-bounce" viewBox="0 0 24 24">
+                        <path fill="#fe4500" d="M21.49 17.34L15.5 20l-4.92-1.96l4.18-.88l-4.3-9.7c-.11-.25 0-.55.25-.66c.25-.11.55 0 .66.25l2.5 5.65l1.61-.71l4.65.01z" opacity="0.3" />
+                        <path fill="currentColor" d="m20.22 10l-4.15.01a.975.975 0 0 0-.45.08l-.59.26l-1.83-4.1c-.56-1.26-2.04-1.83-3.3-1.27s-1.83 2.04-1.27 3.3l3.3 7.45l-1.87.39c-.19.05-.99.27-1.36 1.21L8 19.19l6.78 2.67c.49.19 1.05.18 1.53-.04l5.99-2.65c.89-.4 1.37-1.38 1.13-2.32l-1.36-5.34c-.22-.86-.97-1.47-1.85-1.51m1.27 7.34L15.5 20l-4.92-1.96l4.18-.88l-4.3-9.7c-.11-.25 0-.55.25-.66c.25-.11.55 0 .66.25l2.5 5.65l1.61-.71l4.65.01zM2.06 5.56L1 4.5L4.5 1L8 4.5L6.94 5.56L5.32 3.94a10.457 10.457 0 0 0 1.88 8.99L6.13 14A11.974 11.974 0 0 1 3.5 6.5c0-.92.1-1.82.3-2.68z" />
+                    </svg>
                 </div>
-                <div className="z-10 w-full lg:w-1/2 h-auto p-4 flex flex-col justify-center items-center ">
+                <div className="z-10 w-full lg:w-1/2 h-full p-4 flex flex-col justify-center items-center ">
                     <div className="bg-primary border-2 border-secondary h-[15rem] w-[15rem] transition-transform lg:h-[20rem] lg:w-[20rem] rounded-full">
                         <Image alt="ProfilePic" src="/assets/brand/profilepic.png" width={1000} height={1000} loading="lazy" className="w-[100%] h-full lg:h-[110%] lg:-mt-8 rounded-full"></Image>
                     </div>
