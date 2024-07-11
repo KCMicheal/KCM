@@ -327,6 +327,165 @@ const CheckDDCards = [
     ),
   },
 ];
+const PortfolioCards = [
+  {
+    content: (
+      <Image
+        alt="Portfolio Pics"
+        src="/assets/port/port1.jpg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-contain bg-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Portfolio Pics"
+        src="/assets/port/port2.jpg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Portfolio Pics"
+        src="/assets/port/port3.jpg"
+        width={1000}
+        height={100}
+        className="w-[100%] h-52 md:h-58 rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Portfolio Pics"
+        src="/assets/port/port4.jpg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+];
+const DayzCards = [
+  {
+    content: (
+      <Image
+        alt="Dayz Pics"
+        src="/assets/dayz/dayz1.jpg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-auto object-contain bg-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Dayz Pics"
+        src="/assets/dayz/dayz2.jpg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Dayz Pics"
+        src="/assets/dayz/dayz1.jpg"
+        width={1000}
+        height={100}
+        className="w-[100%] h-52 md:h-58 rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="Dayz Pics"
+        src="/assets/dayz/dayz2.jpg"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+];
+const DTribeCards = [
+  {
+    content: (
+      <Image
+        alt="DTribe Pics"
+        src="/assets/tribe/tribe1.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 object-fill bg-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="DTribe Pics"
+        src="/assets/tribe/tribe2.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-cover rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="DTribe Pics"
+        src="/assets/tribe/tribe3.png"
+        width={1000}
+        height={100}
+        className="w-[100%] h-52 md:h-58 rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="DTribe Pics"
+        src="/assets/tribe/tribe4.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+  {
+    content: (
+      <Image
+        alt="DTribe Pics"
+        src="/assets/tribe/tribe5.png"
+        width={1000}
+        height={1000}
+        className="w-[100%] h-52 md:h-58 object-fill rounded-lg"
+      ></Image>
+    ),
+  },
+];
 
 
-export { CardStack, CARDS, NmaCards, MilesCards, SercleCards, CheckDDCards };
+export {
+  CardStack,
+  CARDS,
+  NmaCards,
+  MilesCards,
+  SercleCards,
+  CheckDDCards,
+  PortfolioCards,
+  DayzCards,
+  DTribeCards
+};
