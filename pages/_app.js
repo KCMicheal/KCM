@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, [10000]);
+    }, [11000]);
 
     return () => clearTimeout(timer);
   }, []);
@@ -23,8 +23,8 @@ export default function App({ Component, pageProps }) {
   if (loading) {
     return ( 
     <>
-    <ThemeProvider attribute='class'>
-      <Loader loadingStates={loadingStates} loading={loading} duration={900} loop={false} />
+    <ThemeProvider attribute='class' defaultTheme="system">
+      <Loader loadingStates={loadingStates} loading={loading} duration={1000} loop={false} />
     </ThemeProvider>
     </>
     )
@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <ThemeProvider attribute='class'>
+      <ThemeProvider attribute='class' defaultTheme="system">
         <AnimatePresence mode="wait" initial="false">
           <Layout>
             <Sidebar currentPage={router.pathname} />

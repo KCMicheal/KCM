@@ -71,7 +71,7 @@ const LoaderCore = ({
                   className={cn(
                     "text-black dark:text-white font-syne font-semibold",
                     value === index &&
-                      "text-black dark:text-primary opacity-100"
+                      "text-primary dark:text-primary opacity-100"
                   )}
                 />
               )}
@@ -80,7 +80,7 @@ const LoaderCore = ({
               className={cn(
                 "text-black dark:text-white font-syne font-semibold",
                 value === index &&
-                  "text-black dark:text-primary opacity-100 font-syne font-semibold"
+                  "text-primary dark:text-primary opacity-100 font-syne font-semibold"
               )}
             >
               {loadingState.text}
