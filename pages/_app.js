@@ -7,6 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import NextTopLoader from 'nextjs-toploader';
 import { MultiStepLoader as Loader, loadingStates } from '../components/multi-step-loader.tsx';
 import { ThemeProvider } from "next-themes"
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -50,6 +51,7 @@ export default function App({ Component, pageProps }) {
               zIndex={1600}
               showAtBottom={false} />
             <Component {...pageProps} />
+            <Analytics />
           </Layout>
         </AnimatePresence>
       </ThemeProvider>
