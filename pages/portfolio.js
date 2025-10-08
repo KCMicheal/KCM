@@ -90,7 +90,7 @@ export default function Portfolio() {
             <CardStack items={MilesCards} offset={6} />
           </div>
         </Link>
-        <Link href={"https://sercleinc.org/"} target='_blank'>
+        <Link href={"https://sercleinc.com/"} target='_blank'>
           <div className="flex flex-col justify-center items-center h-[25rem] md:h-[28rem] w-full p-3 space-y-10 bg-gray-500 backdrop-filter backdrop-blur-[20px] bg-opacity-30 border-2 rounded-2xl">
             <div className="flex flex-row space-x-5 justify-center items-center">
               <Image
